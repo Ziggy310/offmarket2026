@@ -1,0 +1,55 @@
+import { Link } from "react-router-dom";
+import { Instagram, Facebook, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
+
+export default function Footer() {
+  return (
+    <footer className="bg-offmkt-black border-t-2 border-primary">
+      <div className="container mx-auto px-4 lg:px-8 py-12">
+        {/* Top row */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
+          <Link to="/">
+            <img src={logo} alt="off MKT" className="h-12 w-12" />
+          </Link>
+          <div className="flex flex-wrap justify-center gap-6">
+            {["Events", "Food Trucks", "Gallery", "About", "Contact"].map((item) => (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase().replace(" ", "-")}`}
+                className="font-display text-base tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              >
+                {item.toUpperCase()}
+              </Link>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <a href="https://www.instagram.com/offmarketpt" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Facebook className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Middle row */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-muted-foreground mb-8">
+          <span className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-primary" />
+            N125 395, 8125-017 Quarteira, Algarve, Portugal
+          </span>
+          <span className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-primary" />
+            +351 937 208 678
+          </span>
+          <span>Tue–Thu 6:30PM–12AM · Fri–Sat 6:30PM–2AM · Sun 7PM–12AM</span>
+        </div>
+
+        {/* Bottom row */}
+        <div className="text-center text-xs text-muted-foreground/60">
+          © 2025 Off Market Street Food. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}
