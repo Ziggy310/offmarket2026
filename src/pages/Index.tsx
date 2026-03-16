@@ -11,9 +11,9 @@ import foodImg from "@/assets/food-closeup.jpg";
 import crowdImg from "@/assets/crowd-bw.jpg";
 import performerImg from "@/assets/performer.jpg";
 import familyImg from "@/assets/family-dining.jpg";
-import flyerSamba from "@/assets/flyer-samba.jpg";
-import flyerTarde from "@/assets/flyer-samba-tarde.jpg";
-import flyerRitmo from "@/assets/flyer-ritmo.jpg";
+import flyerSamba from "@/assets/flyer-samba.webp";
+import flyerTarde from "@/assets/flyer-samba-tarde.webp";
+import flyerRitmo from "@/assets/flyer-ritmo.webp";
 import cocktailsImg from "@/assets/cocktails.jpg";
 import foodBowls from "@/assets/food-bowls.jpg";
 import foodTruck from "@/assets/food-truck.jpg";
@@ -126,11 +126,11 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {events.map((event) => (
                 <Link to="/events" key={event.name} className="group block">
-                  <div className="overflow-hidden rounded-lg border-b-2 border-transparent group-hover:border-primary transition-all">
+                  <div className="overflow-hidden rounded-[4px] border-b-2 border-transparent group-hover:border-primary transition-all">
                     <img
                       src={event.image}
                       alt={event.name}
-                      className="w-full aspect-[3/4] object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
