@@ -9,7 +9,7 @@ import flyerTarde from "@/assets/flyer-samba-tarde.webp";
 import flyerRitmo from "@/assets/flyer-ritmo.webp";
 
 const allEvents = [
-  { id: 1, name: "Roda de Samba", date: "March 7, 2025", time: "19h", entry: "Free Entry", category: "Samba", image: flyerSamba, description: "An authentic Brazilian samba circle. Live percussion, dancing, and the spirit of Rio right here in Quarteira.", featured: true },
+  { id: 1, name: "Roda de Samba — Viva o Samba", date: "April 4, 2025", time: "19h", entry: "Ingressos Disponíveis", category: "Samba", image: flyerSamba, description: "An authentic Brazilian samba circle with DJ Teagá. Live percussion, dancing, and the spirit of Rio right here in Quarteira.", featured: true },
   { id: 2, name: "Samba de Tarde — Sambambas", date: "March 15, 2025", time: "15h", entry: "Special Offer: Open Bar 70min + Lunch €40", category: "Samba", image: flyerTarde, description: "An afternoon of samba with Sambambas. Enjoy an exclusive lunch and open bar combo.", featured: true },
   { id: 3, name: "Ritmo Futuro Showcase", date: "March 14, 2025", time: "17h", entry: "Free Entry", category: "DJ", image: flyerRitmo, description: "Electronic beats meet world rhythms. A showcase of emerging DJs and producers.", featured: false },
 ];

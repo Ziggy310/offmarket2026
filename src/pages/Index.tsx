@@ -38,7 +38,7 @@ const testimonials = [
 ];
 
 const events = [
-  { name: "Roda de Samba", date: "March 7", time: "19h", entry: "Entrada Gratuita", image: flyerSamba },
+  { name: "Roda de Samba — Viva o Samba", date: "April 4", time: "19h", entry: "Ingressos Disponíveis", image: flyerSamba },
   { name: "Samba de Tarde — Sambambas", date: "March 15", time: "15h", entry: "Special Offer: Open Bar + Lunch €40", image: flyerTarde },
   { name: "Ritmo Futuro Showcase", date: "March 14", time: "17h", entry: "Entrada Gratuita", image: flyerRitmo },
 ];
