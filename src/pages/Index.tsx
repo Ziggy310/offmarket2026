@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import heroImg from "@/assets/hero-aerial.jpg";
+import logo from "@/assets/logo.png";
 import foodImg from "@/assets/food-closeup.jpg";
 import crowdImg from "@/assets/crowd-bw.jpg";
 import performerImg from "@/assets/performer.jpg";
@@ -66,6 +67,8 @@ export default function Index() {
         {/* TODO: Replace placeholder with actual video file. Recommend 16:9 crop of existing Instagram vertical content. */}
         <div className="absolute inset-0 bg-background/50" />
         <div className="relative z-10 text-center px-4 max-w-4xl">
+          <img src={heroImg} alt="" className="hidden" />
+          <img src={logo} alt="off MKT" className="w-[120px] md:w-[180px] h-auto mx-auto mb-6 animate-fade-in" />
           <h1 className="font-display text-6xl md:text-8xl lg:text-[96px] leading-none tracking-wide text-foreground mb-4 animate-fade-in">
             WHERE THE ALGARVE COMES ALIVE
           </h1>

@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
           <Link to="/">
-            <img src={logo} alt="off MKT" className="h-12 w-12" />
+            <img src={logo} alt="off MKT" className="h-12 w-auto" />
           </Link>
           <div className="flex flex-wrap justify-center gap-6">
             {["Events", "Food Trucks", "Gallery", "About", "Contact"].map((item) => (
