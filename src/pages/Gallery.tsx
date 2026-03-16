@@ -1,0 +1,108 @@
+import { useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { FadeInSection } from "@/hooks/useFadeIn";
+
+import heroImg from "@/assets/hero-aerial.jpg";
+import foodImg from "@/assets/food-closeup.jpg";
+import crowdImg from "@/assets/crowd-bw.jpg";
+import performerImg from "@/assets/performer.jpg";
+import familyImg from "@/assets/family-dining.jpg";
+import cocktailsImg from "@/assets/cocktails.jpg";
+import foodBowls from "@/assets/food-bowls.jpg";
+import foodTruck from "@/assets/food-truck.jpg";
+
+type Category = "All" | "Food" | "Music" | "Crowd" | "Family";
+
+const photos = [
+  { src: heroImg, cat: "Crowd" as Category },
+  { src: foodImg, cat: "Food" as Category },
+  { src: crowdImg, cat: "Crowd" as Category },
+  { src: performerImg, cat: "Music" as Category },
+  { src: familyImg, cat: "Family" as Category },
+  { src: cocktailsImg, cat: "Food" as Category },
+  { src: foodBowls, cat: "Food" as Category },
+  { src: foodTruck, cat: "Food" as Category },
+];
+
+const categories: Category[] = ["All", "Food", "Music", "Crowd", "Family"];
+
+export default function GalleryPage() {
+  const [filter, setFilter] = useState<Category>("All");
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const filtered = filter === "All" ? photos : photos.filter((p) => p.cat === filter);
+
+  const openLightbox = (i: number) => setLightbox(i);
+  const closeLightbox = () => setLightbox(null);
+  const prev = () => setLightbox((c) => (c !== null ? (c - 1 + filtered.length) % filtered.length : null));
+  const next = () => setLightbox((c) => (c !== null ? (c + 1) % filtered.length : null));
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      <section className="pt-28 pb-16 px-4 bg-background">
+        <div className="container mx-auto text-center">
+          <h1 className="font-display text-6xl md:text-8xl text-foreground mb-4">GALLERY</h1>
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setFilter(c)}
+                className={`px-4 py-2 rounded-full font-body text-sm transition-colors ${
+                  filter === c ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground border border-border hover:border-primary"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FadeInSection>
+        <section className="pb-16 px-4">
+          <div className="container mx-auto columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
+            {filtered.map((photo, i) => (
+              <div key={i} onClick={() => openLightbox(i)} className="break-inside-avoid overflow-hidden rounded-lg cursor-pointer group relative">
+                <img src={photo.src} alt="Off Market" className="w-full object-cover group-hover:brightness-110 transition-all duration-300" loading="lazy" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-200" />
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeInSection>
+
+      <section className="pb-24 text-center">
+        <a
+          href="https://www.instagram.com/offmarketpt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
+          See more on Instagram →
+        </a>
+      </section>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center" onClick={closeLightbox}>
+          <button onClick={closeLightbox} className="absolute top-6 right-6 text-foreground hover:text-primary z-50">
+            <X className="w-8 h-8" />
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-4 text-foreground hover:text-primary">
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          <img src={filtered[lightbox].src} alt="Gallery photo" className="max-h-[85vh] max-w-[90vw] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-4 text-foreground hover:text-primary">
+            <ChevronRight className="w-10 h-10" />
+          </button>
+        </div>
+      )}
+
+      <Footer />
+    </div>
+  );
+}
