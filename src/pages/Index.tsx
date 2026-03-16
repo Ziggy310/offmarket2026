@@ -126,11 +126,11 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {events.map((event) => (
                 <Link to="/events" key={event.name} className="group block">
-                  <div className="overflow-hidden rounded-lg border-b-2 border-transparent group-hover:border-primary transition-all">
+                  <div className="overflow-hidden rounded-[4px] border-b-2 border-transparent group-hover:border-primary transition-all">
                     <img
                       src={event.image}
                       alt={event.name}
-                      className="w-full aspect-[3/4] object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>

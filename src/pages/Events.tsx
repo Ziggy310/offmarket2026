@@ -88,8 +88,8 @@ export default function EventsPage() {
           ) : viewMode === "grid" ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {filtered.map((event) => (
-                <div key={event.id} className="bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-colors group">
-                  <img src={event.image} alt={event.name} className="w-full aspect-[3/4] object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" />
+                <div key={event.id} className="bg-card rounded-[4px] overflow-hidden border border-border hover:border-primary/50 transition-colors group">
+                  <img src={event.image} alt={event.name} className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" />
                   <div className="p-4">
                     <h3 className="font-display text-2xl text-foreground">{event.name}</h3>
                     <p className="font-body text-sm text-muted-foreground">{event.date} · {event.time}</p>
