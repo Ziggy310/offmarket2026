@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
-import flyerSamba from "@/assets/flyer-samba.jpg";
-import flyerTarde from "@/assets/flyer-samba-tarde.jpg";
-import flyerRitmo from "@/assets/flyer-ritmo.jpg";
+import flyerSamba from "@/assets/flyer-samba.webp";
+import flyerTarde from "@/assets/flyer-samba-tarde.webp";
+import flyerRitmo from "@/assets/flyer-ritmo.webp";
 
 const allEvents = [
   { id: 1, name: "Roda de Samba", date: "March 7, 2025", time: "19h", entry: "Free Entry", category: "Samba", image: flyerSamba, description: "An authentic Brazilian samba circle. Live percussion, dancing, and the spirit of Rio right here in Quarteira.", featured: true },
