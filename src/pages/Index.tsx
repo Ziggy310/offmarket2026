@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import heroImg from "@/assets/hero-aerial.jpg";
+import logo from "@/assets/logo.png";
 import foodImg from "@/assets/food-closeup.jpg";
 import crowdImg from "@/assets/crowd-bw.jpg";
 import performerImg from "@/assets/performer.jpg";
