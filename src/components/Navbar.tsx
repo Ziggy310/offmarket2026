@@ -4,6 +4,7 @@ import { Menu, X, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
   { label: "Food Trucks", href: "/food-trucks" },
   { label: "Gallery", href: "/gallery" },
