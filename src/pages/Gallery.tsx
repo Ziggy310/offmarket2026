@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
+// Batch 1
 import galleryWaitress from "@/assets/gallery-waitress.png";
 import galleryWings from "@/assets/gallery-wings.png";
 import galleryBurger from "@/assets/gallery-burger.png";
@@ -15,19 +16,41 @@ import galleryDrummer from "@/assets/gallery-drummer.png";
 import galleryTeam from "@/assets/gallery-team.png";
 import galleryDancing from "@/assets/gallery-dancing.png";
 
+// Batch 2
+import galleryGrilledMeat from "@/assets/gallery-grilled-meat.jpeg";
+import galleryBarGirl from "@/assets/gallery-bar-girl.jpeg";
+import galleryKaraoke from "@/assets/gallery-karaoke.png";
+import galleryFamilies from "@/assets/gallery-families.png";
+import galleryBlackBurger from "@/assets/gallery-black-burger.png";
+import galleryBartender from "@/assets/gallery-bartender.jpeg";
+import galleryDessertCounter from "@/assets/gallery-dessert-counter.jpeg";
+import galleryBeers from "@/assets/gallery-beers.jpeg";
+import galleryVinylDj from "@/assets/gallery-vinyl-dj.jpeg";
+import galleryPerformerSolo from "@/assets/gallery-performer-solo.jpeg";
+
 type Category = "All" | "Food" | "Music" | "Crowd" | "Vibes";
 
 const photos = [
   { src: galleryCrowdSinger, cat: "Music" as Category },
   { src: galleryWings, cat: "Food" as Category },
   { src: galleryDancing, cat: "Vibes" as Category },
-  { src: galleryBurger, cat: "Food" as Category },
+  { src: galleryGrilledMeat, cat: "Food" as Category },
+  { src: galleryBarGirl, cat: "Vibes" as Category },
   { src: galleryGuitarists, cat: "Music" as Category },
+  { src: galleryKaraoke, cat: "Crowd" as Category },
+  { src: galleryBurger, cat: "Food" as Category },
+  { src: galleryFamilies, cat: "Crowd" as Category },
   { src: galleryWaitress, cat: "Vibes" as Category },
+  { src: galleryBlackBurger, cat: "Food" as Category },
+  { src: galleryBartender, cat: "Vibes" as Category },
   { src: galleryDrinks, cat: "Food" as Category },
   { src: galleryDrummer, cat: "Music" as Category },
+  { src: galleryDessertCounter, cat: "Food" as Category },
   { src: galleryCheers, cat: "Crowd" as Category },
+  { src: galleryBeers, cat: "Vibes" as Category },
+  { src: galleryVinylDj, cat: "Music" as Category },
   { src: galleryTeam, cat: "Crowd" as Category },
+  { src: galleryPerformerSolo, cat: "Music" as Category },
 ];
 
 const categories: Category[] = ["All", "Food", "Music", "Crowd", "Vibes"];
