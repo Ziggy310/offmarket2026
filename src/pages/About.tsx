@@ -14,7 +14,7 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden grain-overlay">
-        <img src={heroImg} alt="Venue aerial" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={aboutHero} alt="Off Market venue at night" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/60" />
         <div className="relative z-10 text-center px-4">
           <h1 className="font-display text-6xl md:text-8xl text-foreground">MORE THAN A MARKET.</h1>
