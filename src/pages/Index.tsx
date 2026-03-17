@@ -44,7 +44,7 @@ const events = [
   { name: "Ritmo Futuro Showcase", date: "March 14", time: "17h", entry: "Entrada Gratuita", image: flyerRitmo },
 ];
 
-const galleryImages = [heroImg, crowdImg, performerImg, familyImg, cocktailsImg, foodBowls, foodTruck, foodImg];
+const galleryImages = [galleryCrowdSinger, galleryDancing, galleryGuitarists, galleryWings, galleryBurger, galleryDrummer, galleryCheers, galleryWaitress];
 
 const cuisineTags = ["Brazilian BBQ", "Plant-Based", "Burgers", "Latin Street Food", "Poke Bowls", "Pulled Beef", "Cocktail Bar", "Açaí"];
 
