@@ -7,16 +7,17 @@ import Footer from "@/components/Footer";
 
 import heroImg from "@/assets/hero-aerial.jpg";
 import logo from "@/assets/logo.png";
-import foodImg from "@/assets/food-closeup.jpg";
-import crowdImg from "@/assets/crowd-bw.jpg";
-import performerImg from "@/assets/performer.jpg";
-import familyImg from "@/assets/family-dining.jpg";
 import flyerSamba from "@/assets/flyer-samba.webp";
 import flyerTarde from "@/assets/flyer-samba-tarde.webp";
 import flyerRitmo from "@/assets/flyer-ritmo.webp";
-import cocktailsImg from "@/assets/cocktails.jpg";
-import foodBowls from "@/assets/food-bowls.jpg";
-import foodTruck from "@/assets/food-truck.jpg";
+import galleryCrowdSinger from "@/assets/gallery-crowd-singer.png";
+import galleryDancing from "@/assets/gallery-dancing.png";
+import galleryGuitarists from "@/assets/gallery-guitarists.png";
+import galleryWings from "@/assets/gallery-wings.png";
+import galleryBurger from "@/assets/gallery-burger.png";
+import galleryDrummer from "@/assets/gallery-drummer.png";
+import galleryCheers from "@/assets/gallery-cheers.png";
+import galleryWaitress from "@/assets/gallery-waitress.png";
 
 const testimonials = [
   {
