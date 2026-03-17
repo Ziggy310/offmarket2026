@@ -4,19 +4,27 @@ import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 import { ArrowRight } from "lucide-react";
 
-import foodCloseup from "@/assets/food-closeup.jpg";
 import foodBowls from "@/assets/food-bowls.jpg";
-import foodTruck from "@/assets/food-truck.jpg";
 import cocktails from "@/assets/cocktails.jpg";
+import point80Thumb from "@/assets/point80-thumb.jpg";
+import ohmydogThumb from "@/assets/ohmydog-thumb.jpg";
+import milanesaThumb from "@/assets/milanesa-thumb.jpg";
+import gelateria1997Thumb from "@/assets/1997-thumb.jpg";
+import vagabunsThumb from "@/assets/vagabuns-thumb.jpg";
+import bbq67Thumb from "@/assets/67bbq-thumb.jpg";
+import takebaoThumb from "@/assets/takebao-thumb.jpg";
+import beirutThumb from "@/assets/beirut-thumb.jpg";
 
 const trucks = [
   { name: "Caty's Kitchen", cuisine: "Plant-Based & Vegan", desc: "Where flavor meets conscience. 100% plant-based, made fresh.", slug: "caty-kitchen", image: foodBowls },
-  { name: "67 BBQ — O Sabor do Brasil", cuisine: "Brazilian BBQ & Grilled Meats", desc: "Authentic Brazilian cuts, slow-smoked to perfection.", slug: null, image: foodCloseup },
-  { name: "[Truck Name TBC]", cuisine: "Poke Bowls & Hawaiian", desc: "Fresh poke bowls with tropical flavors. Placeholder — name to be confirmed.", slug: null, image: foodBowls },
-  { name: "[Truck Name TBC]", cuisine: "Burgers & American Street Food", desc: "Smashed burgers, loaded fries, and classic American comfort. Placeholder.", slug: null, image: foodTruck },
-  { name: "[Truck Name TBC]", cuisine: "Latin Street Food & Empanadas", desc: "Empanadas, arepas, and the vibrant flavors of Latin America. Placeholder.", slug: null, image: foodCloseup },
-  { name: "[Truck Name TBC]", cuisine: "Italian Pasta & Pizza", desc: "Handmade pasta and wood-fired pizza. Placeholder.", slug: null, image: foodTruck },
-  { name: "[Truck Name TBC]", cuisine: "Açaí & Health Bowls", desc: "Açaí bowls, smoothies, and health-forward street food. Placeholder.", slug: null, image: foodBowls },
+  { name: "67 BBQ — O Sabor do Brasil", cuisine: "Brazilian BBQ & Grilled Meats", desc: "Authentic Brazilian cuts, slow-smoked to perfection.", slug: null, image: bbq67Thumb },
+  { name: "Point'80 — Burger House", cuisine: "Burgers & Comfort Food", desc: "Smashed burgers, loaded fries, and classic comfort.", slug: null, image: point80Thumb },
+  { name: "Oh My Dog!", cuisine: "Street Food & Wings", desc: "Hot dogs, crispy wings, and bold street flavors.", slug: null, image: ohmydogThumb },
+  { name: "Milanesa Street", cuisine: "Latin Street Food & Milanesas", desc: "Crispy milanesas and the vibrant flavors of Latin America.", slug: null, image: milanesaThumb },
+  { name: "1997 Gelateria", cuisine: "Italian Ice Cream & Desserts", desc: "Artisan gelato, crepes, coffee, and cake.", slug: null, image: gelateria1997Thumb },
+  { name: "Vagabuns Smash Burger", cuisine: "Smash Burgers", desc: "Smashed to perfection with bold, loaded toppings.", slug: null, image: vagabunsThumb },
+  { name: "Take a Bao", cuisine: "Asian Street Food", desc: "Steamed bao buns and Asian street food favorites.", slug: null, image: takebaoThumb },
+  { name: "Beirut Bites", cuisine: "Lebanese & Middle Eastern", desc: "Wraps, shawarma, and the flavors of Beirut.", slug: null, image: beirutThumb },
   { name: "Off Market Cocktail Bar", cuisine: "Cocktails, Wine & Craft Beer", desc: "Expertly mixed cocktails, local wines, and craft beer on tap.", slug: null, image: cocktails },
 ];
 
