@@ -2,39 +2,96 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
-
-const desktopNavLinks = [
-  { label: "Home", href: "/" },
-  { label: "Events", href: "/events" },
-  { label: "Food Trucks", href: "/food-trucks" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
-];
-
-const mobileNavLinks = [
-  { label: "Home", href: "/" },
-  { label: "Events", href: "/events" },
-  { label: "Food Trucks", href: "/food-trucks" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
 
-  // Lock body scroll when mobile menu is open
+  const desktopNavLinks = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.events"), href: "/events" },
+    { label: t("nav.foodTrucks"), href: "/food-trucks" },
+    { label: t("nav.gallery"), href: "/gallery" },
+    { label: t("nav.about"), href: "/about" },
+  ];
+
+  const mobileNavLinks = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.events"), href: "/events" },
+    { label: t("nav.foodTrucks"), href: "/food-trucks" },
+    { label: t("nav.gallery"), href: "/gallery" },
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  const LangToggle = ({ size = "sm" }: { size?: "sm" | "lg" }) => {
+    const base = size === "lg" ? "px-4 py-1.5 text-sm" : "px-3 py-1 text-xs";
+    return (
+      <div className="flex gap-1">
+        <button
+          onClick={() => setLang("en")}
+          className={`${base} rounded-full font-display tracking-wider transition-colors ${
+            lang === "en"
+              ? "text-white"
+              : "text-white/70 border border-white/30"
+          }`}
+          style={lang === "en" ? { backgroundColor: "#E8321A" } : {}}
+        >
+          EN
+        </button>
+        <button
+          onClick={() => setLang("pt")}
+          className={`${base} rounded-full font-display tracking-wider transition-colors ${
+            lang === "pt"
+              ? "text-white"
+              : "text-white/70 border border-white/30"
+          }`}
+          style={lang === "pt" ? { backgroundColor: "#E8321A" } : {}}
+        >
+          PT
+        </button>
+      </div>
+    );
+  };
+
+  // Desktop lang toggle (uses foreground colors)
+  const DesktopLangToggle = () => (
+    <div className="flex gap-1">
+      <button
+        onClick={() => setLang("en")}
+        className={`px-3 py-1 text-xs rounded-full font-display tracking-wider transition-colors ${
+          lang === "en"
+            ? "text-primary-foreground"
+            : "text-foreground/70 border border-border"
+        }`}
+        style={lang === "en" ? { backgroundColor: "#E8321A" } : {}}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => setLang("pt")}
+        className={`px-3 py-1 text-xs rounded-full font-display tracking-wider transition-colors ${
+          lang === "pt"
+            ? "text-primary-foreground"
+            : "text-foreground/70 border border-border"
+        }`}
+        style={lang === "pt" ? { backgroundColor: "#E8321A" } : {}}
+      >
+        PT
+      </button>
+    </div>
+  );
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md">
@@ -60,11 +117,11 @@ export default function Navbar() {
             href="#reserve"
             className="bg-primary text-primary-foreground font-display text-lg tracking-wider px-6 py-2 rounded-full hover:bg-primary/90 transition-colors"
           >
-            RESERVE
+            {t("nav.reserve")}
           </a>
         </div>
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-4">
           <a
             href="https://www.instagram.com/offmarketn125/reels/"
             target="_blank"
@@ -73,9 +130,10 @@ export default function Navbar() {
           >
             <Instagram className="w-5 h-5" />
           </a>
+          <DesktopLangToggle />
         </div>
 
-        {/* Mobile hamburger - only visible when menu is closed */}
+        {/* Mobile hamburger */}
         {!open && (
           <button
             onClick={() => setOpen(true)}
@@ -124,7 +182,10 @@ export default function Navbar() {
           </button>
 
           {/* Nav links */}
-          <div className="flex flex-col items-center" style={{ gap: 32, paddingTop: 80 }}>
+          <div className="flex flex-col items-center" style={{ gap: 32, paddingTop: 24 }}>
+            {/* Language toggle */}
+            <LangToggle size="lg" />
+
             {mobileNavLinks.map((link) => (
               <Link
                 key={link.href}
@@ -141,7 +202,7 @@ export default function Navbar() {
               className="mt-4 w-full max-w-[280px] text-center font-display text-2xl tracking-wider px-8 py-3 rounded-full text-white"
               style={{ backgroundColor: "#E8321A" }}
             >
-              RESERVE
+              {t("nav.reserve")}
             </a>
           </div>
 

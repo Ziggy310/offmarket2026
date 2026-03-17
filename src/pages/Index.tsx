@@ -4,6 +4,7 @@ import { ChevronDown, UtensilsCrossed, Music, Moon, Users, ArrowRight, Star, Pho
 import { FadeInSection } from "@/hooks/useFadeIn";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import heroImg from "@/assets/hero-aerial.jpg";
 import logo from "@/assets/logo.png";
@@ -50,6 +51,7 @@ const cuisineTags = ["Brazilian BBQ", "Plant-Based", "Burgers", "Latin Street Fo
 
 export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,6 +59,20 @@ export default function Index() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const pillars = [
+    { icon: UtensilsCrossed, label: t("pillars.food"), desc: t("pillars.foodDesc") },
+    { icon: Music, label: t("pillars.music"), desc: t("pillars.musicDesc") },
+    { icon: Moon, label: t("pillars.night"), desc: t("pillars.nightDesc") },
+    { icon: Users, label: t("pillars.family"), desc: t("pillars.familyDesc") },
+  ];
+
+  const hours = [
+    { day: t("hours.tueThu"), time: "6:30 PM – 12:00 AM" },
+    { day: t("hours.friSat"), time: "6:30 PM – 2:00 AM" },
+    { day: t("hours.sun"), time: "7:00 PM – 12:00 AM" },
+    { day: t("hours.mon"), time: t("hours.closed") },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,17 +94,17 @@ export default function Index() {
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <img src={logo} alt="off MKT" className="w-[120px] md:w-[180px] h-auto mx-auto mb-6 animate-fade-in" />
           <h1 className="font-display text-6xl md:text-8xl lg:text-[96px] leading-none tracking-wide text-foreground mb-4 animate-fade-in">
-            WHERE THE ALGARVE COMES ALIVE
+            {t("hero.headline")}
           </h1>
           <p className="font-body text-lg font-light text-foreground/80 mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Street food. Live music. Nightlife energy. Family welcome.
+            {t("hero.sub")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <a href="#reserve" className="bg-primary text-primary-foreground font-display text-xl tracking-wider px-8 py-3 rounded-full hover:bg-primary/90 transition-all hover:scale-105">
-              RESERVE A TABLE
+              {t("hero.cta1")}
             </a>
             <Link to="/events" className="border border-foreground text-foreground font-display text-xl tracking-wider px-8 py-3 rounded-full hover:bg-foreground/10 transition-all hover:scale-105">
-              SEE EVENTS
+              {t("hero.cta2")}
             </Link>
           </div>
         </div>
@@ -102,18 +118,13 @@ export default function Index() {
         <section className="py-24 px-4 bg-background">
           <div className="container mx-auto text-center">
             <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-              MORE THAN A MARKET. IT'S A FEELING.
+              {t("pillars.headline")}
             </h2>
             <p className="font-body text-base font-light text-muted-foreground max-w-xl mx-auto mb-16">
-              An outdoor space unlike anything else in the Algarve. By day, a gathering place for families and food lovers. By night, the energy of a nightclub under the open sky.
+              {t("pillars.sub")}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: UtensilsCrossed, label: "WORLD FOOD", desc: "8 global food trucks. Burgers, samba bowls, BBQ, plant-based, cocktails and more." },
-                { icon: Music, label: "LIVE MUSIC", desc: "Samba, rock, world music, DJ sets. Multiple events every week." },
-                { icon: Moon, label: "NIGHTLIFE VIBES", desc: "Open until 2AM on weekends. Music, dancing, and great drinks under the Algarve sky." },
-                { icon: Users, label: "FAMILY WELCOME", desc: "Kids' play area, relaxed seating, and something for every age. Come as a family. Stay as a crowd." },
-              ].map((card) => (
+              {pillars.map((card) => (
                 <div key={card.label} className="bg-card border border-border rounded-lg p-8 text-center hover:border-primary/50 transition-colors group">
                   <card.icon className="w-10 h-10 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
                   <h3 className="font-display text-2xl text-foreground mb-2">{card.label}</h3>
@@ -129,32 +140,25 @@ export default function Index() {
       <FadeInSection>
         <section className="py-24 px-4 bg-card">
           <div className="container mx-auto">
-            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-2 text-center uppercase">What's On</p>
-            <h2 className="font-display text-5xl md:text-6xl text-foreground text-center mb-12">UPCOMING EVENTS</h2>
+            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-2 text-center uppercase">{t("events.label")}</p>
+            <h2 className="font-display text-5xl md:text-6xl text-foreground text-center mb-12">{t("events.headline")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {events.map((event) => (
                 <Link to="/events" key={event.name} className="group block">
                   <div className="overflow-hidden rounded-[4px] border-b-2 border-transparent group-hover:border-primary transition-all">
-                    <img
-                      src={event.image}
-                      alt={event.name}
-                      className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      loading="lazy"
-                    />
+                    <img src={event.image} alt={event.name} className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" />
                   </div>
                   <div className="pt-4">
                     <h3 className="font-display text-2xl text-foreground">{event.name}</h3>
                     <p className="font-body text-sm text-muted-foreground">{event.date} · {event.time}</p>
-                    <span className="inline-block mt-2 px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full">
-                      {event.entry}
-                    </span>
+                    <span className="inline-block mt-2 px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full">{event.entry}</span>
                   </div>
                 </Link>
               ))}
             </div>
             <div className="text-center mt-12">
               <Link to="/events" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display text-xl tracking-wider px-8 py-3 rounded-full hover:bg-primary/90 transition-all">
-                VIEW ALL EVENTS <ArrowRight className="w-5 h-5" />
+                {t("events.cta")} <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
@@ -170,20 +174,16 @@ export default function Index() {
               <img src={galleryWings} alt="Grilled food" className="w-full h-[500px] object-cover rounded-lg" loading="lazy" />
             </div>
             <div>
-              <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-2 uppercase">The Food</p>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">EIGHT KITCHENS. ONE INCREDIBLE SPACE.</h2>
-              <p className="font-body text-base text-muted-foreground mb-8">
-                From wood-fired BBQ and Brazilian street food to plant-based bowls and exotic cocktails — Off Market brings the world's flavors to Quarteira. Every truck is independent. Every dish is made with love.
-              </p>
+              <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-2 uppercase">{t("food.label")}</p>
+              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">{t("food.headline")}</h2>
+              <p className="font-body text-base text-muted-foreground mb-8">{t("food.desc")}</p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {cuisineTags.map((tag) => (
-                  <span key={tag} className="px-4 py-1.5 border border-border rounded-full text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors">
-                    {tag}
-                  </span>
+                  <span key={tag} className="px-4 py-1.5 border border-border rounded-full text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors">{tag}</span>
                 ))}
               </div>
               <Link to="/food-trucks" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display text-xl tracking-wider px-8 py-3 rounded-full hover:bg-primary/90 transition-all">
-                EXPLORE FOOD TRUCKS <ArrowRight className="w-5 h-5" />
+                {t("food.cta")} <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
@@ -194,28 +194,18 @@ export default function Index() {
       <FadeInSection>
         <section className="py-24 px-4 bg-background">
           <div className="container mx-auto">
-            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-8 text-center uppercase">The Vibe</p>
+            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-8 text-center uppercase">{t("vibe.label")}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {galleryImages.map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-sm group cursor-pointer relative">
-                  <img
-                    src={img}
-                    alt="Off Market atmosphere"
-                    className="w-full h-48 md:h-56 object-cover group-hover:brightness-110 transition-all duration-300"
-                    loading="lazy"
-                  />
+                  <img src={img} alt="Off Market atmosphere" className="w-full h-48 md:h-56 object-cover group-hover:brightness-110 transition-all duration-300" loading="lazy" />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-200" />
                 </div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <a
-                href="https://www.instagram.com/offmarketn125/reels/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
-              >
-                FOLLOW US ON INSTAGRAM @offmarketn125
+              <a href="https://www.instagram.com/offmarketn125/reels/" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider">
+                {t("vibe.instagram")}
               </a>
             </div>
           </div>
@@ -225,38 +215,22 @@ export default function Index() {
       {/* TESTIMONIALS */}
       <section className="py-20 px-4 bg-primary">
         <div className="container mx-auto text-center max-w-3xl">
-          <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary-foreground/80 mb-8 uppercase">What People Say</p>
+          <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary-foreground/80 mb-8 uppercase">{t("testimonials.label")}</p>
           <div className="relative min-h-[200px] flex items-center justify-center">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${
-                  i === currentTestimonial ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <p className="font-body text-xl md:text-2xl text-primary-foreground font-light italic leading-relaxed mb-6">
-                  "{t.quote}"
-                </p>
-                <p className="font-body text-sm text-primary-foreground/80">
-                  — {t.author} <span className="text-primary-foreground">⭐⭐⭐⭐⭐</span>
-                </p>
+            {testimonials.map((item, i) => (
+              <div key={i} className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === currentTestimonial ? "opacity-100" : "opacity-0"}`}>
+                <p className="font-body text-xl md:text-2xl text-primary-foreground font-light italic leading-relaxed mb-6">"{item.quote}"</p>
+                <p className="font-body text-sm text-primary-foreground/80">— {item.author} <span className="text-primary-foreground">⭐⭐⭐⭐⭐</span></p>
               </div>
             ))}
           </div>
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentTestimonial(i)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  i === currentTestimonial ? "bg-primary-foreground" : "bg-primary-foreground/30"
-                }`}
-                aria-label={`Testimonial ${i + 1}`}
-              />
+              <button key={i} onClick={() => setCurrentTestimonial(i)} className={`w-2 h-2 rounded-full transition-colors ${i === currentTestimonial ? "bg-primary-foreground" : "bg-primary-foreground/30"}`} aria-label={`Testimonial ${i + 1}`} />
             ))}
           </div>
           <p className="font-display text-2xl text-primary-foreground mt-8">
-            4.7 <Star className="inline w-5 h-5 fill-current" /> on Google — 256 Reviews
+            4.7 <Star className="inline w-5 h-5 fill-current" /> {t("testimonials.rating")}
           </p>
         </div>
       </section>
@@ -267,13 +241,11 @@ export default function Index() {
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10 container mx-auto max-w-2xl">
           <FadeInSection>
-            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-4 uppercase">Our Story</p>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">BORN IN QUARTEIRA. BUILT FOR EVERYONE.</h2>
-            <p className="font-body text-base text-foreground/80 mb-8 leading-relaxed">
-              Off Market started with a simple idea: bring the best food, the best music, and the best vibes to one outdoor space in the heart of the Algarve. What began as a gathering of food trucks became the most exciting night out — and afternoon in — this region has ever seen. Come for the food. Stay for the music. Come back for the feeling.
-            </p>
+            <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-4 uppercase">{t("story.label")}</p>
+            <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">{t("story.headline")}</h2>
+            <p className="font-body text-base text-foreground/80 mb-8 leading-relaxed">{t("story.desc")}</p>
             <Link to="/about" className="inline-flex items-center gap-2 border border-foreground text-foreground font-display text-xl tracking-wider px-8 py-3 rounded-full hover:bg-foreground/10 transition-all">
-              READ OUR STORY <ArrowRight className="w-5 h-5" />
+              {t("story.cta")} <ArrowRight className="w-5 h-5" />
             </Link>
           </FadeInSection>
         </div>
@@ -284,32 +256,22 @@ export default function Index() {
         <section className="py-24 px-4 bg-background">
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h2 className="font-display text-4xl text-foreground mb-8">HOURS</h2>
+              <h2 className="font-display text-4xl text-foreground mb-8">{t("hours.title")}</h2>
               <div className="space-y-3 font-body text-base">
-                {[
-                  { day: "Tuesday – Thursday", time: "6:30 PM – 12:00 AM" },
-                  { day: "Friday – Saturday", time: "6:30 PM – 2:00 AM" },
-                  { day: "Sunday", time: "7:00 PM – 12:00 AM" },
-                  { day: "Monday", time: "CLOSED" },
-                ].map((h) => (
+                {hours.map((h) => (
                   <div key={h.day} className="flex justify-between border-b border-border pb-2">
                     <span className="text-foreground">{h.day}</span>
-                    <span className={h.time === "CLOSED" ? "text-primary font-semibold" : "text-muted-foreground"}>{h.time}</span>
+                    <span className={h.time === t("hours.closed") ? "text-primary font-semibold" : "text-muted-foreground"}>{h.time}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h2 className="font-display text-4xl text-foreground mb-8">FIND US</h2>
+              <h2 className="font-display text-4xl text-foreground mb-8">{t("hours.findUs")}</h2>
               <div className="rounded-lg overflow-hidden h-64 bg-muted">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.5!2d-8.1!3d37.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDA0JzEyLjAiTiA4wrAwNicwMC4wIlc!5e0!3m2!1sen!2spt!4v1709000000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="Off Market location"
+                  width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Off Market location"
                 />
               </div>
             </div>
@@ -324,15 +286,13 @@ export default function Index() {
       {/* RESERVE CTA */}
       <section className="py-24 px-4 bg-primary text-center" id="reserve">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">READY TO EXPERIENCE OFF MARKET?</h2>
-          <p className="font-body text-lg text-primary-foreground/80 mb-8">
-            Reservations recommended, especially on event nights. Walk-ins always welcome.
-          </p>
+          <h2 className="font-display text-5xl md:text-7xl text-primary-foreground mb-4">{t("reserve.headline")}</h2>
+          <p className="font-body text-lg text-primary-foreground/80 mb-8">{t("reserve.sub")}</p>
           <a href="#reserve" className="inline-block bg-foreground text-background font-display text-2xl tracking-wider px-10 py-4 rounded-full hover:bg-foreground/90 transition-all hover:scale-105">
-            RESERVE YOUR TABLE
+            {t("reserve.cta")}
           </a>
           <p className="font-body text-sm text-primary-foreground/60 mt-4">
-            Or call us: <a href="tel:+351937208678" className="underline">+351 937 208 678</a>
+            {t("reserve.call")} <a href="tel:+351937208678" className="underline">+351 937 208 678</a>
           </p>
         </div>
       </section>
