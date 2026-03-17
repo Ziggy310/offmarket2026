@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
 import heroImg from "@/assets/hero-aerial.jpg";
-import familyImg from "@/assets/family-dining.jpg";
+import venueOutdoor from "@/assets/venue-outdoor.png";
 
 export default function AboutPage() {
   return (
@@ -34,7 +34,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="rounded-lg overflow-hidden">
-              <img src={familyImg} alt="Families at Off Market" className="w-full h-[400px] object-cover" loading="lazy" />
+              <img src={venueOutdoor} alt="Off Market outdoor venue" className="w-full h-[400px] object-cover" loading="lazy" />
             </div>
           </div>
         </section>
