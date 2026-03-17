@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 import { ArrowRight } from "lucide-react";
 
-import foodBowls from "@/assets/food-bowls.jpg";
+
 import cocktails from "@/assets/cocktails.jpg";
 import point80Thumb from "@/assets/point80-thumb.jpg";
 import ohmydogThumb from "@/assets/ohmydog-thumb.jpg";
@@ -16,7 +16,7 @@ import takebaoThumb from "@/assets/takebao-thumb.jpg";
 import beirutThumb from "@/assets/beirut-thumb.jpg";
 
 const trucks = [
-  { name: "Caty's Kitchen", cuisine: "Plant-Based & Vegan", desc: "Where flavor meets conscience. 100% plant-based, made fresh.", slug: "caty-kitchen", image: foodBowls },
+  
   { name: "67 BBQ — O Sabor do Brasil", cuisine: "Brazilian BBQ & Grilled Meats", desc: "Authentic Brazilian cuts, slow-smoked to perfection.", slug: null, image: bbq67Thumb },
   { name: "Point'80 — Burger House", cuisine: "Burgers & Comfort Food", desc: "Smashed burgers, loaded fries, and classic comfort.", slug: null, image: point80Thumb },
   { name: "Oh My Dog!", cuisine: "Street Food & Wings", desc: "Hot dogs, crispy wings, and bold street flavors.", slug: null, image: ohmydogThumb },
