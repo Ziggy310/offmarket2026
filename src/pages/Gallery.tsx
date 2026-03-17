@@ -4,29 +4,33 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
-import heroImg from "@/assets/hero-aerial.jpg";
-import foodImg from "@/assets/food-closeup.jpg";
-import crowdImg from "@/assets/crowd-bw.jpg";
-import performerImg from "@/assets/performer.jpg";
-import familyImg from "@/assets/family-dining.jpg";
-import cocktailsImg from "@/assets/cocktails.jpg";
-import foodBowls from "@/assets/food-bowls.jpg";
-import foodTruck from "@/assets/food-truck.jpg";
+import galleryWaitress from "@/assets/gallery-waitress.png";
+import galleryWings from "@/assets/gallery-wings.png";
+import galleryBurger from "@/assets/gallery-burger.png";
+import galleryDrinks from "@/assets/gallery-drinks.png";
+import galleryCrowdSinger from "@/assets/gallery-crowd-singer.png";
+import galleryCheers from "@/assets/gallery-cheers.png";
+import galleryGuitarists from "@/assets/gallery-guitarists.png";
+import galleryDrummer from "@/assets/gallery-drummer.png";
+import galleryTeam from "@/assets/gallery-team.png";
+import galleryDancing from "@/assets/gallery-dancing.png";
 
-type Category = "All" | "Food" | "Music" | "Crowd" | "Family";
+type Category = "All" | "Food" | "Music" | "Crowd" | "Vibes";
 
 const photos = [
-  { src: heroImg, cat: "Crowd" as Category },
-  { src: foodImg, cat: "Food" as Category },
-  { src: crowdImg, cat: "Crowd" as Category },
-  { src: performerImg, cat: "Music" as Category },
-  { src: familyImg, cat: "Family" as Category },
-  { src: cocktailsImg, cat: "Food" as Category },
-  { src: foodBowls, cat: "Food" as Category },
-  { src: foodTruck, cat: "Food" as Category },
+  { src: galleryCrowdSinger, cat: "Music" as Category },
+  { src: galleryWings, cat: "Food" as Category },
+  { src: galleryDancing, cat: "Vibes" as Category },
+  { src: galleryBurger, cat: "Food" as Category },
+  { src: galleryGuitarists, cat: "Music" as Category },
+  { src: galleryWaitress, cat: "Vibes" as Category },
+  { src: galleryDrinks, cat: "Food" as Category },
+  { src: galleryDrummer, cat: "Music" as Category },
+  { src: galleryCheers, cat: "Crowd" as Category },
+  { src: galleryTeam, cat: "Crowd" as Category },
 ];
 
-const categories: Category[] = ["All", "Food", "Music", "Crowd", "Family"];
+const categories: Category[] = ["All", "Food", "Music", "Crowd", "Vibes"];
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState<Category>("All");
