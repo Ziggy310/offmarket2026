@@ -12,6 +12,7 @@ const desktopNavLinks = [
 ];
 
 const mobileNavLinks = [
+  { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
   { label: "Food Trucks", href: "/food-trucks" },
   { label: "Gallery", href: "/gallery" },
