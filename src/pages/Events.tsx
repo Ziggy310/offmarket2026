@@ -83,7 +83,7 @@ export default function EventsPage() {
 
           {filtered.length === 0 ? (
             <div className="bg-card border border-primary/30 rounded-lg p-12 text-center">
-              <p className="font-body text-muted-foreground">Check back soon or follow us on Instagram <a href="https://www.instagram.com/offmarketpt" target="_blank" rel="noopener noreferrer" className="text-primary">@offmarketpt</a> for the latest.</p>
+              <p className="font-body text-muted-foreground">Check back soon or follow us on Instagram <a href="https://www.instagram.com/offmarketn125/reels/" target="_blank" rel="noopener noreferrer" className="text-primary">@offmarketn125</a> for the latest.</p>
             </div>
           ) : viewMode === "grid" ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

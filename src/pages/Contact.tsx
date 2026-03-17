@@ -74,7 +74,7 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-col items-center gap-2">
               <Instagram className="w-6 h-6 text-primary" />
-              <a href="https://www.instagram.com/offmarketpt" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">@offmarketpt</a>
+              <a href="https://www.instagram.com/offmarketn125/reels/" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">@offmarketn125</a>
             </div>
           </div>
 
