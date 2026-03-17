@@ -12,6 +12,7 @@ const desktopNavLinks = [
 ];
 
 const mobileNavLinks = [
+  { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
   { label: "Food Trucks", href: "/food-trucks" },
   { label: "Gallery", href: "/gallery" },
@@ -74,58 +75,90 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground z-[10000] relative"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="w-7 h-7 text-white" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile hamburger - only visible when menu is closed */}
+        {!open && (
+          <button
+            onClick={() => setOpen(true)}
+            className="md:hidden text-foreground"
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        )}
       </div>
 
       {/* Mobile full-screen overlay */}
-      <div
-        className={`fixed inset-0 z-[9999] flex flex-col items-center justify-between md:hidden transition-opacity duration-[250ms] ease-out ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        style={{ backgroundColor: "#0D0D0D", opacity: open ? 1 : 0 }}
-      >
-        {/* Nav links - centered */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-6">
-          {mobileNavLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => setOpen(false)}
-              className="font-display text-[48px] leading-none tracking-wider text-white hover:text-primary transition-colors"
-            >
-              {link.label.toUpperCase()}
-            </Link>
-          ))}
-          <a
-            href="#reserve"
+      {open && (
+        <div
+          className="md:hidden"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "#0D0D0D",
+            zIndex: 9999,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+          }}
+        >
+          {/* Close button */}
+          <button
             onClick={() => setOpen(false)}
-            className="mt-4 w-full max-w-[280px] text-center font-display text-2xl tracking-wider px-8 py-3 rounded-full text-white"
-            style={{ backgroundColor: "#E8321A" }}
+            aria-label="Close menu"
+            style={{
+              position: "absolute",
+              top: 24,
+              right: 24,
+              zIndex: 10000,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
           >
-            RESERVE
-          </a>
-        </div>
+            <X className="w-8 h-8 text-white" />
+          </button>
 
-        {/* Bottom section */}
-        <div className="pb-8 flex flex-col items-center gap-4">
-          <a
-            href="https://www.instagram.com/offmarketn125/reels/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-primary transition-colors"
-          >
-            <Instagram className="w-7 h-7" />
-          </a>
-          <p className="text-white/50 text-xs font-body">© 2025 Off Market Street Food</p>
+          {/* Nav links */}
+          <div className="flex flex-col items-center" style={{ gap: 32, paddingTop: 80 }}>
+            {mobileNavLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setOpen(false)}
+                className="font-display text-[48px] leading-none tracking-wider text-white hover:text-primary transition-colors"
+              >
+                {link.label.toUpperCase()}
+              </Link>
+            ))}
+            <a
+              href="#reserve"
+              onClick={() => setOpen(false)}
+              className="mt-4 w-full max-w-[280px] text-center font-display text-2xl tracking-wider px-8 py-3 rounded-full text-white"
+              style={{ backgroundColor: "#E8321A" }}
+            >
+              RESERVE
+            </a>
+          </div>
+
+          {/* Bottom section */}
+          <div className="absolute bottom-8 flex flex-col items-center gap-4">
+            <a
+              href="https://www.instagram.com/offmarketn125/reels/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary transition-colors"
+            >
+              <Instagram className="w-7 h-7" />
+            </a>
+            <p className="text-white/50 text-xs font-body">© 2025 Off Market Street Food</p>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }
