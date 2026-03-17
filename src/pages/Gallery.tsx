@@ -3,8 +3,8 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-// Batch 1
 import galleryWaitress from "@/assets/gallery-waitress.png";
 import galleryWings from "@/assets/gallery-wings.png";
 import galleryBurger from "@/assets/gallery-burger.png";
@@ -15,8 +15,6 @@ import galleryGuitarists from "@/assets/gallery-guitarists.png";
 import galleryDrummer from "@/assets/gallery-drummer.png";
 import galleryTeam from "@/assets/gallery-team.png";
 import galleryDancing from "@/assets/gallery-dancing.png";
-
-// Batch 2
 import galleryGrilledMeat from "@/assets/gallery-grilled-meat.jpeg";
 import galleryBarGirl from "@/assets/gallery-bar-girl.jpeg";
 import galleryKaraoke from "@/assets/gallery-karaoke.png";
@@ -29,37 +27,46 @@ import galleryVinylDj from "@/assets/gallery-vinyl-dj.jpeg";
 import galleryPerformerSolo from "@/assets/gallery-performer-solo.jpeg";
 import galleryTableCrowd from "@/assets/gallery-table-crowd.png";
 
-type Category = "All" | "Food" | "Music" | "Crowd" | "Vibes";
+type CatKey = "All" | "Food" | "Music" | "Crowd" | "Vibes";
 
 const photos = [
-  { src: galleryCrowdSinger, cat: "Music" as Category },
-  { src: galleryWings, cat: "Food" as Category },
-  { src: galleryDancing, cat: "Vibes" as Category },
-  { src: galleryGrilledMeat, cat: "Food" as Category },
-  { src: galleryBarGirl, cat: "Vibes" as Category },
-  { src: galleryGuitarists, cat: "Music" as Category },
-  { src: galleryKaraoke, cat: "Crowd" as Category },
-  { src: galleryBurger, cat: "Food" as Category },
-  { src: galleryFamilies, cat: "Crowd" as Category },
-  { src: galleryWaitress, cat: "Vibes" as Category },
-  { src: galleryBlackBurger, cat: "Food" as Category },
-  { src: galleryBartender, cat: "Vibes" as Category },
-  { src: galleryDrinks, cat: "Food" as Category },
-  { src: galleryDrummer, cat: "Music" as Category },
-  { src: galleryDessertCounter, cat: "Food" as Category },
-  { src: galleryCheers, cat: "Crowd" as Category },
-  { src: galleryBeers, cat: "Vibes" as Category },
-  { src: galleryVinylDj, cat: "Music" as Category },
-  { src: galleryTeam, cat: "Crowd" as Category },
-  { src: galleryPerformerSolo, cat: "Music" as Category },
-  { src: galleryTableCrowd, cat: "Crowd" as Category },
+  { src: galleryCrowdSinger, cat: "Music" as CatKey },
+  { src: galleryWings, cat: "Food" as CatKey },
+  { src: galleryDancing, cat: "Vibes" as CatKey },
+  { src: galleryGrilledMeat, cat: "Food" as CatKey },
+  { src: galleryBarGirl, cat: "Vibes" as CatKey },
+  { src: galleryGuitarists, cat: "Music" as CatKey },
+  { src: galleryKaraoke, cat: "Crowd" as CatKey },
+  { src: galleryBurger, cat: "Food" as CatKey },
+  { src: galleryFamilies, cat: "Crowd" as CatKey },
+  { src: galleryWaitress, cat: "Vibes" as CatKey },
+  { src: galleryBlackBurger, cat: "Food" as CatKey },
+  { src: galleryBartender, cat: "Vibes" as CatKey },
+  { src: galleryDrinks, cat: "Food" as CatKey },
+  { src: galleryDrummer, cat: "Music" as CatKey },
+  { src: galleryDessertCounter, cat: "Food" as CatKey },
+  { src: galleryCheers, cat: "Crowd" as CatKey },
+  { src: galleryBeers, cat: "Vibes" as CatKey },
+  { src: galleryVinylDj, cat: "Music" as CatKey },
+  { src: galleryTeam, cat: "Crowd" as CatKey },
+  { src: galleryPerformerSolo, cat: "Music" as CatKey },
+  { src: galleryTableCrowd, cat: "Crowd" as CatKey },
 ];
 
-const categories: Category[] = ["All", "Food", "Music", "Crowd", "Vibes"];
+const catKeys: CatKey[] = ["All", "Food", "Music", "Crowd", "Vibes"];
 
 export default function GalleryPage() {
-  const [filter, setFilter] = useState<Category>("All");
+  const [filter, setFilter] = useState<CatKey>("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const { t } = useLanguage();
+
+  const catLabels: Record<CatKey, string> = {
+    All: t("galleryPage.all"),
+    Food: t("galleryPage.food"),
+    Music: t("galleryPage.music"),
+    Crowd: t("galleryPage.crowd"),
+    Vibes: t("galleryPage.vibes"),
+  };
 
   const filtered = filter === "All" ? photos : photos.filter((p) => p.cat === filter);
 
@@ -74,9 +81,9 @@ export default function GalleryPage() {
 
       <section className="pt-28 pb-16 px-4 bg-background">
         <div className="container mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-8xl text-foreground mb-4">GALLERY</h1>
+          <h1 className="font-display text-6xl md:text-8xl text-foreground mb-4">{t("galleryPage.title")}</h1>
           <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {categories.map((c) => (
+            {catKeys.map((c) => (
               <button
                 key={c}
                 onClick={() => setFilter(c)}
@@ -84,7 +91,7 @@ export default function GalleryPage() {
                   filter === c ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground border border-border hover:border-primary"
                 }`}
               >
-                {c}
+                {catLabels[c]}
               </button>
             ))}
           </div>
@@ -105,29 +112,17 @@ export default function GalleryPage() {
       </FadeInSection>
 
       <section className="pb-24 text-center">
-        <a
-          href="https://www.instagram.com/offmarketn125/reels/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          See more on Instagram →
+        <a href="https://www.instagram.com/offmarketn125/reels/" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+          {t("galleryPage.seeMore")}
         </a>
       </section>
 
-      {/* Lightbox */}
       {lightbox !== null && (
         <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center" onClick={closeLightbox}>
-          <button onClick={closeLightbox} className="absolute top-6 right-6 text-foreground hover:text-primary z-50">
-            <X className="w-8 h-8" />
-          </button>
-          <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-4 text-foreground hover:text-primary">
-            <ChevronLeft className="w-10 h-10" />
-          </button>
+          <button onClick={closeLightbox} className="absolute top-6 right-6 text-foreground hover:text-primary z-50"><X className="w-8 h-8" /></button>
+          <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-4 text-foreground hover:text-primary"><ChevronLeft className="w-10 h-10" /></button>
           <img src={filtered[lightbox].src} alt="Gallery photo" className="max-h-[85vh] max-w-[90vw] object-contain" onClick={(e) => e.stopPropagation()} />
-          <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-4 text-foreground hover:text-primary">
-            <ChevronRight className="w-10 h-10" />
-          </button>
+          <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-4 text-foreground hover:text-primary"><ChevronRight className="w-10 h-10" /></button>
         </div>
       )}
 

@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 import { ArrowRight } from "lucide-react";
-
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import cocktails from "@/assets/cocktails.jpg";
 import point80Thumb from "@/assets/point80-thumb.jpg";
@@ -16,7 +16,6 @@ import takebaoThumb from "@/assets/takebao-thumb.jpg";
 import beirutThumb from "@/assets/beirut-thumb.jpg";
 
 const trucks = [
-  
   { name: "67 BBQ — O Sabor do Brasil", cuisine: "Brazilian BBQ & Grilled Meats", desc: "Authentic Brazilian cuts, slow-smoked to perfection.", slug: null, image: bbq67Thumb },
   { name: "Point'80 — Burger House", cuisine: "Burgers & Comfort Food", desc: "Smashed burgers, loaded fries, and classic comfort.", slug: null, image: point80Thumb },
   { name: "Oh My Dog!", cuisine: "Street Food & Wings", desc: "Hot dogs, crispy wings, and bold street flavors.", slug: null, image: ohmydogThumb },
@@ -29,14 +28,16 @@ const trucks = [
 ];
 
 export default function FoodTrucksPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <section className="pt-28 pb-16 px-4 bg-background">
         <div className="container mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-8xl text-foreground mb-4">THE KITCHENS</h1>
-          <p className="font-body text-lg text-muted-foreground">8 independent food trucks. One incredible space.</p>
+          <h1 className="font-display text-6xl md:text-8xl text-foreground mb-4">{t("trucksPage.title")}</h1>
+          <p className="font-body text-lg text-muted-foreground">{t("trucksPage.sub")}</p>
         </div>
       </section>
 
@@ -52,10 +53,10 @@ export default function FoodTrucksPage() {
                   <p className="font-body text-sm text-muted-foreground mb-4">{truck.desc}</p>
                   {truck.slug ? (
                     <Link to={`/food-trucks/${truck.slug}`} className="inline-flex items-center gap-1 text-primary font-display text-base tracking-wider hover:gap-2 transition-all">
-                      VIEW MENU <ArrowRight className="w-4 h-4" />
+                      {t("trucksPage.viewMenu")} <ArrowRight className="w-4 h-4" />
                     </Link>
                   ) : (
-                    <span className="text-muted-foreground/50 font-body text-sm italic">Menu coming soon</span>
+                    <span className="text-muted-foreground/50 font-body text-sm italic">{t("trucksPage.menuSoon")}</span>
                   )}
                 </div>
               </div>
@@ -66,10 +67,10 @@ export default function FoodTrucksPage() {
 
       <section className="pb-24 px-4 text-center">
         <div className="container mx-auto bg-card border border-border rounded-lg p-8">
-          <h3 className="font-display text-2xl text-foreground mb-2">Are you a food truck?</h3>
-          <p className="font-body text-sm text-muted-foreground mb-4">Join Off Market and be part of something incredible.</p>
+          <h3 className="font-display text-2xl text-foreground mb-2">{t("trucksPage.areYou")}</h3>
+          <p className="font-body text-sm text-muted-foreground mb-4">{t("trucksPage.joinUs")}</p>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display text-lg tracking-wider px-6 py-2 rounded-full hover:bg-primary/90 transition-all">
-            GET IN TOUCH <ArrowRight className="w-4 h-4" />
+            {t("trucksPage.getInTouch")} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
