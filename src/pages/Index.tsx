@@ -64,11 +64,18 @@ export default function Index() {
 
       {/* HERO */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden grain-overlay">
-        <img src={heroImg} alt="Off Market venue at night" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        {/* TODO: Replace placeholder with actual video file. Recommend 16:9 crop of existing Instagram vertical content. */}
-        <div className="absolute inset-0 bg-background/50" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImg}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/Off_Market_Hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.45)]" />
         <div className="relative z-10 text-center px-4 max-w-4xl">
-          <img src={heroImg} alt="" className="hidden" />
           <img src={logo} alt="off MKT" className="w-[120px] md:w-[180px] h-auto mx-auto mb-6 animate-fade-in" />
           <h1 className="font-display text-6xl md:text-8xl lg:text-[96px] leading-none tracking-wide text-foreground mb-4 animate-fade-in">
             WHERE THE ALGARVE COMES ALIVE
