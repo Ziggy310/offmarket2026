@@ -7,16 +7,17 @@ import Footer from "@/components/Footer";
 
 import heroImg from "@/assets/hero-aerial.jpg";
 import logo from "@/assets/logo.png";
-import foodImg from "@/assets/food-closeup.jpg";
-import crowdImg from "@/assets/crowd-bw.jpg";
-import performerImg from "@/assets/performer.jpg";
-import familyImg from "@/assets/family-dining.jpg";
 import flyerSamba from "@/assets/flyer-samba.webp";
 import flyerTarde from "@/assets/flyer-samba-tarde.webp";
 import flyerRitmo from "@/assets/flyer-ritmo.webp";
-import cocktailsImg from "@/assets/cocktails.jpg";
-import foodBowls from "@/assets/food-bowls.jpg";
-import foodTruck from "@/assets/food-truck.jpg";
+import galleryCrowdSinger from "@/assets/gallery-crowd-singer.png";
+import galleryDancing from "@/assets/gallery-dancing.png";
+import galleryGuitarists from "@/assets/gallery-guitarists.png";
+import galleryWings from "@/assets/gallery-wings.png";
+import galleryBurger from "@/assets/gallery-burger.png";
+import galleryDrummer from "@/assets/gallery-drummer.png";
+import galleryCheers from "@/assets/gallery-cheers.png";
+import galleryWaitress from "@/assets/gallery-waitress.png";
 
 const testimonials = [
   {
@@ -43,7 +44,7 @@ const events = [
   { name: "Ritmo Futuro Showcase", date: "March 14", time: "17h", entry: "Entrada Gratuita", image: flyerRitmo },
 ];
 
-const galleryImages = [heroImg, crowdImg, performerImg, familyImg, cocktailsImg, foodBowls, foodTruck, foodImg];
+const galleryImages = [galleryCrowdSinger, galleryDancing, galleryGuitarists, galleryWings, galleryBurger, galleryDrummer, galleryCheers, galleryWaitress];
 
 const cuisineTags = ["Brazilian BBQ", "Plant-Based", "Burgers", "Latin Street Food", "Poke Bowls", "Pulled Beef", "Cocktail Bar", "Açaí"];
 
@@ -159,7 +160,7 @@ export default function Index() {
           <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative overflow-hidden rounded-lg">
-              <img src={foodImg} alt="Grilled food" className="w-full h-[500px] object-cover rounded-lg" loading="lazy" />
+              <img src={galleryWings} alt="Grilled food" className="w-full h-[500px] object-cover rounded-lg" loading="lazy" />
             </div>
             <div>
               <p className="font-body text-sm font-semibold tracking-[0.2em] text-primary mb-2 uppercase">The Food</p>
