@@ -26,7 +26,7 @@ export default function Footer() {
             <a href="https://www.instagram.com/offmarketn125/reels/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://www.facebook.com/profile.php?id=100090935670781&sk=photos" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Facebook className="w-5 h-5" />
             </a>
           </div>
