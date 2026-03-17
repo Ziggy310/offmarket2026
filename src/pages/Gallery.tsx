@@ -27,6 +27,7 @@ import galleryDessertCounter from "@/assets/gallery-dessert-counter.jpeg";
 import galleryBeers from "@/assets/gallery-beers.jpeg";
 import galleryVinylDj from "@/assets/gallery-vinyl-dj.jpeg";
 import galleryPerformerSolo from "@/assets/gallery-performer-solo.jpeg";
+import galleryTableCrowd from "@/assets/gallery-table-crowd.png";
 
 type Category = "All" | "Food" | "Music" | "Crowd" | "Vibes";
 
@@ -51,6 +52,7 @@ const photos = [
   { src: galleryVinylDj, cat: "Music" as Category },
   { src: galleryTeam, cat: "Crowd" as Category },
   { src: galleryPerformerSolo, cat: "Music" as Category },
+  { src: galleryTableCrowd, cat: "Crowd" as Category },
 ];
 
 const categories: Category[] = ["All", "Food", "Music", "Crowd", "Vibes"];
