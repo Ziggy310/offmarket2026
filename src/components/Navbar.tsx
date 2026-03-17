@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground z-[60]"
+          className="md:hidden text-foreground z-[10000] relative"
           aria-label="Toggle menu"
         >
           {open ? <X className="w-7 h-7 text-white" /> : <Menu className="w-6 h-6" />}
@@ -86,10 +86,10 @@ export default function Navbar() {
 
       {/* Mobile full-screen overlay */}
       <div
-        className={`fixed inset-0 z-[55] flex flex-col items-center justify-between md:hidden transition-opacity duration-[250ms] ease-out ${
+        className={`fixed inset-0 z-[9999] flex flex-col items-center justify-between md:hidden transition-opacity duration-[250ms] ease-out ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        style={{ backgroundColor: "#0D0D0D" }}
+        style={{ backgroundColor: "#0D0D0D", opacity: open ? 1 : 0 }}
       >
         {/* Nav links - centered */}
         <div className="flex-1 flex flex-col items-center justify-center gap-6">
