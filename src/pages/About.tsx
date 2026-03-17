@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
-import heroImg from "@/assets/hero-aerial.jpg";
+import aboutHero from "@/assets/about-hero.png";
 import venueOutdoor from "@/assets/venue-outdoor.png";
 
 export default function AboutPage() {
