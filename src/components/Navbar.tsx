@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground z-[60]"
+          className="md:hidden text-foreground z-[10000] relative"
           aria-label="Toggle menu"
         >
           {open ? <X className="w-7 h-7 text-white" /> : <Menu className="w-6 h-6" />}
