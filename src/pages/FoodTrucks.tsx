@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 import { ArrowRight } from "lucide-react";
 
-import foodBowls from "@/assets/food-bowls.jpg";
+
 import cocktails from "@/assets/cocktails.jpg";
 import point80Thumb from "@/assets/point80-thumb.jpg";
 import ohmydogThumb from "@/assets/ohmydog-thumb.jpg";
