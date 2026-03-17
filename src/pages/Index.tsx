@@ -203,12 +203,12 @@ export default function Index() {
             </div>
             <div className="text-center mt-8">
               <a
-                href="https://www.instagram.com/offmarketpt"
+                href="https://www.instagram.com/offmarketn125/reels/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-sm text-muted-foreground hover:text-primary transition-colors tracking-wider"
               >
-                FOLLOW US ON INSTAGRAM @offmarketpt
+                FOLLOW US ON INSTAGRAM @offmarketn125
               </a>
             </div>
           </div>

@@ -44,7 +44,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center">
           <a
-            href="https://www.instagram.com/offmarketpt"
+            href="https://www.instagram.com/offmarketn125/reels/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors"
@@ -84,7 +84,7 @@ export default function Navbar() {
             RESERVE
           </a>
           <a
-            href="https://www.instagram.com/offmarketpt"
+            href="https://www.instagram.com/offmarketn125/reels/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors mt-4"
