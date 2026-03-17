@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { FadeInSection } from "@/hooks/useFadeIn";
 
 import heroImg from "@/assets/hero-aerial.jpg";
-import familyImg from "@/assets/family-dining.jpg";
+import venueOutdoor from "@/assets/venue-outdoor.png";
 
 export default function AboutPage() {
   return (
