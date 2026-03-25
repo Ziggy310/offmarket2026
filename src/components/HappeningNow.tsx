@@ -14,11 +14,10 @@ export interface HappeningNowData {
 
 const defaultData: HappeningNowData = {
   visible: true,
-  eventName: "DIA DAS CRIANÇAS",
-  date: "Sábado, 1 de Junho",
-  time: "A partir das 14h",
-  description:
-    "Uma tarde especial para os mais pequenos. Atividades, animação e muita diversão para toda a família no espaço Off Market.",
+  eventName: "",
+  date: "",
+  time: "",
+  description: "",
   entryType: "free",
 };
 
@@ -28,6 +27,10 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
 
   if (!d.visible) return null;
 
+  const name = d.eventName || t("happeningNow.defaultName");
+  const date = d.date || t("happeningNow.defaultDate");
+  const time = d.time || t("happeningNow.defaultTime");
+  const desc = d.description || t("happeningNow.defaultDesc");
   const entryLabel =
     d.entryType === "free"
       ? t("happeningNow.freeEntry")
@@ -42,7 +45,7 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
             <div className="h-[300px] lg:h-auto min-h-[400px]">
               <img
                 src={d.imageUrl || placeholderImg}
-                alt={d.eventName}
+                alt={name}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -58,20 +61,20 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
               </span>
 
               <h2 className="font-display text-[40px] lg:text-[64px] leading-none text-white mb-4">
-                {d.eventName}
+                {name}
               </h2>
 
               <p
                 className="font-body text-lg mb-1"
                 style={{ color: "#D4873A" }}
               >
-                {d.date}
+                {date}
               </p>
 
-              <p className="font-body text-sm text-white/60 mb-4">{d.time}</p>
+              <p className="font-body text-sm text-white/60 mb-4">{time}</p>
 
               <p className="font-body text-base text-white/80 mb-6 line-clamp-3 max-w-lg">
-                {d.description}
+                {desc}
               </p>
 
               <span

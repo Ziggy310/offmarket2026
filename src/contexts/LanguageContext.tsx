@@ -137,6 +137,10 @@ const translations: Record<string, { en: string; pt: string }> = {
   "happeningNow.label": { en: "HAPPENING NOW", pt: "A ACONTECER AGORA" },
   "happeningNow.freeEntry": { en: "Free Entry", pt: "Entrada Gratuita" },
   "happeningNow.paidEntry": { en: "Paid Entry", pt: "Entrada Paga" },
+  "happeningNow.defaultName": { en: "CHILDREN'S DAY", pt: "DIA DAS CRIANÇAS" },
+  "happeningNow.defaultDate": { en: "Saturday, June 1st", pt: "Sábado, 1 de Junho" },
+  "happeningNow.defaultTime": { en: "From 2PM", pt: "A partir das 14h" },
+  "happeningNow.defaultDesc": { en: "A special afternoon for the little ones. Activities, entertainment and lots of fun for the whole family at Off Market.", pt: "Uma tarde especial para os mais pequenos. Atividades, animação e muita diversão para toda a família no espaço Off Market." },
 
   // Footer
   "footer.rights": { en: "All rights reserved.", pt: "Todos os direitos reservados." },
