@@ -38,6 +38,7 @@ export default function AdminPage() {
   const [tab, setTab] = useState<"events" | "happeningnow" | "gallery" | "info">("events");
   const [happeningNow, setHappeningNow] = useState<HappeningNowData>(defaultHappeningNow);
 
+  const [formData, setFormData] = useState({ name: "", date: "", time: "", entry: "Free Entry", description: "", featured: false });
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
@@ -101,8 +102,8 @@ export default function AdminPage() {
 
       <div className="container mx-auto px-4 py-8">
         {/* Tabs */}
-        <div className="flex gap-2 mb-8">
-          {(["events", "gallery", "info"] as const).map((t) => (
+        <div className="flex gap-2 mb-8 flex-wrap">
+          {(["events", "happeningnow", "gallery", "info"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
@@ -110,7 +111,7 @@ export default function AdminPage() {
                 tab === t ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:text-foreground"
               }`}
             >
-              {t.toUpperCase()}
+              {t === "happeningnow" ? "HAPPENING NOW" : t.toUpperCase()}
             </button>
           ))}
         </div>
@@ -118,9 +119,9 @@ export default function AdminPage() {
         {tab === "events" && (
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="font-display text-2xl text-foreground">EVENTS MANAGER</h2>
+              <h2 className="font-display text-2xl text-foreground">LIVE SHOWS MANAGER</h2>
               <button onClick={() => { setShowForm(true); setEditingEvent(null); setFormData({ name: "", date: "", time: "", entry: "Free Entry", description: "", featured: false }); }} className="flex items-center gap-1 bg-primary text-primary-foreground font-display tracking-wider px-4 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors">
-                <Plus className="w-4 h-4" /> ADD EVENT
+                <Plus className="w-4 h-4" /> ADD SHOW
               </button>
             </div>
 
@@ -177,6 +178,68 @@ export default function AdminPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        )}
+
+        {tab === "happeningnow" && (
+          <div>
+            <h2 className="font-display text-2xl text-foreground mb-6">HAPPENING NOW</h2>
+            <div className="bg-card border border-border rounded-lg p-6 space-y-4">
+              <label className="flex items-center gap-3 font-body text-foreground cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={happeningNow.visible}
+                  onChange={(e) => setHappeningNow({ ...happeningNow, visible: e.target.checked })}
+                  className="accent-primary w-5 h-5"
+                />
+                Show this section on homepage
+              </label>
+              <input
+                placeholder="Event Name"
+                value={happeningNow.eventName}
+                onChange={(e) => setHappeningNow({ ...happeningNow, eventName: e.target.value })}
+                className="w-full bg-background border border-border rounded-lg px-4 py-2 font-body text-foreground focus:border-primary focus:outline-none"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  placeholder="Date (e.g. Sábado, 1 de Junho)"
+                  value={happeningNow.date}
+                  onChange={(e) => setHappeningNow({ ...happeningNow, date: e.target.value })}
+                  className="bg-background border border-border rounded-lg px-4 py-2 font-body text-foreground focus:border-primary focus:outline-none"
+                />
+                <input
+                  placeholder="Time (e.g. A partir das 14h)"
+                  value={happeningNow.time}
+                  onChange={(e) => setHappeningNow({ ...happeningNow, time: e.target.value })}
+                  className="bg-background border border-border rounded-lg px-4 py-2 font-body text-foreground focus:border-primary focus:outline-none"
+                />
+              </div>
+              <textarea
+                placeholder="Description"
+                rows={3}
+                value={happeningNow.description}
+                onChange={(e) => setHappeningNow({ ...happeningNow, description: e.target.value })}
+                className="w-full bg-background border border-border rounded-lg px-4 py-2 font-body text-foreground focus:border-primary focus:outline-none resize-none"
+              />
+              <select
+                value={happeningNow.entryType}
+                onChange={(e) => setHappeningNow({ ...happeningNow, entryType: e.target.value as "free" | "paid" })}
+                className="bg-background border border-border rounded-lg px-4 py-2 font-body text-foreground focus:border-primary focus:outline-none"
+              >
+                <option value="free">Free Entry / Entrada Gratuita</option>
+                <option value="paid">Paid Entry / Entrada Paga</option>
+              </select>
+              <div>
+                <label className="font-body text-sm text-muted-foreground block mb-2">Image Upload</label>
+                <p className="font-body text-xs text-muted-foreground italic">Enable Lovable Cloud to upload images. Currently using placeholder.</p>
+              </div>
+              <button
+                onClick={() => alert("Saved! (Enable Lovable Cloud to persist changes)")}
+                className="bg-primary text-primary-foreground font-display px-6 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors"
+              >
+                SAVE
+              </button>
             </div>
           </div>
         )}
