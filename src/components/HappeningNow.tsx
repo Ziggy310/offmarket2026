@@ -14,11 +14,10 @@ export interface HappeningNowData {
 
 const defaultData: HappeningNowData = {
   visible: true,
-  eventName: "DIA DAS CRIANÇAS",
-  date: "Sábado, 1 de Junho",
-  time: "A partir das 14h",
-  description:
-    "Uma tarde especial para os mais pequenos. Atividades, animação e muita diversão para toda a família no espaço Off Market.",
+  eventName: "",
+  date: "",
+  time: "",
+  description: "",
   entryType: "free",
 };
 
@@ -28,6 +27,10 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
 
   if (!d.visible) return null;
 
+  const name = d.eventName || t("happeningNow.defaultName");
+  const date = d.date || t("happeningNow.defaultDate");
+  const time = d.time || t("happeningNow.defaultTime");
+  const desc = d.description || t("happeningNow.defaultDesc");
   const entryLabel =
     d.entryType === "free"
       ? t("happeningNow.freeEntry")
@@ -42,6 +45,7 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
             <div className="h-[300px] lg:h-auto min-h-[400px]">
               <img
                 src={d.imageUrl || placeholderImg}
+                alt={name}
                 alt={d.eventName}
                 className="w-full h-full object-cover"
                 loading="lazy"
