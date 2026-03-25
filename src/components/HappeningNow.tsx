@@ -46,7 +46,6 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
               <img
                 src={d.imageUrl || placeholderImg}
                 alt={name}
-                alt={d.eventName}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
