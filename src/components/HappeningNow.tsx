@@ -38,15 +38,16 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
 
   return (
     <FadeInSection>
-      <section style={{ backgroundColor: "#141414" }} className="py-20 px-4">
+      <section style={{ backgroundColor: "#141414" }} className="py-[60px] px-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg overflow-hidden">
             {/* Image */}
-            <div className="h-[300px] lg:h-auto min-h-[400px]">
+            <div className="h-[480px] w-full overflow-hidden">
               <img
                 src={d.imageUrl || placeholderImg}
                 alt={name}
                 className="w-full h-full object-cover"
+                style={{ objectPosition: "center 25%" }}
                 loading="lazy"
               />
             </div>
