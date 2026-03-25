@@ -1,0 +1,92 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+import { FadeInSection } from "@/hooks/useFadeIn";
+import placeholderImg from "@/assets/happening-now-placeholder.jpg";
+
+export interface HappeningNowData {
+  visible: boolean;
+  eventName: string;
+  date: string;
+  time: string;
+  description: string;
+  entryType: "free" | "paid";
+  imageUrl?: string;
+}
+
+const defaultData: HappeningNowData = {
+  visible: true,
+  eventName: "DIA DAS CRIANÇAS",
+  date: "Sábado, 1 de Junho",
+  time: "A partir das 14h",
+  description:
+    "Uma tarde especial para os mais pequenos. Atividades, animação e muita diversão para toda a família no espaço Off Market.",
+  entryType: "free",
+};
+
+export default function HappeningNow({ data }: { data?: HappeningNowData }) {
+  const { t } = useLanguage();
+  const d = data ?? defaultData;
+
+  if (!d.visible) return null;
+
+  const entryLabel =
+    d.entryType === "free"
+      ? t("happeningNow.freeEntry")
+      : t("happeningNow.paidEntry");
+
+  return (
+    <FadeInSection>
+      <section style={{ backgroundColor: "#141414" }} className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg overflow-hidden">
+            {/* Image */}
+            <div className="h-[300px] lg:h-auto min-h-[400px]">
+              <img
+                src={d.imageUrl || placeholderImg}
+                alt={d.eventName}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col justify-center p-8 lg:p-12">
+              <span
+                className="font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4"
+                style={{ color: "#E8321A" }}
+              >
+                {t("happeningNow.label")}
+              </span>
+
+              <h2 className="font-display text-[40px] lg:text-[64px] leading-none text-white mb-4">
+                {d.eventName}
+              </h2>
+
+              <p
+                className="font-body text-lg mb-1"
+                style={{ color: "#D4873A" }}
+              >
+                {d.date}
+              </p>
+
+              <p className="font-body text-sm text-white/60 mb-4">{d.time}</p>
+
+              <p className="font-body text-base text-white/80 mb-6 line-clamp-3 max-w-lg">
+                {d.description}
+              </p>
+
+              <span
+                className={`inline-block self-start px-4 py-1.5 rounded-full text-sm font-semibold font-body ${
+                  d.entryType === "free"
+                    ? "bg-green-600/20 text-green-400"
+                    : "bg-red-600/20 text-red-400"
+                }`}
+              >
+                {entryLabel}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </FadeInSection>
+  );
+}

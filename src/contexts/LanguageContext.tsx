@@ -11,7 +11,7 @@ interface LanguageContextType {
 const translations: Record<string, { en: string; pt: string }> = {
   // Nav
   "nav.home": { en: "Home", pt: "Início" },
-  "nav.events": { en: "Events", pt: "Eventos" },
+  "nav.events": { en: "Live Shows", pt: "Shows ao Vivo" },
   "nav.foodTrucks": { en: "Food Trucks", pt: "Food Trucks" },
   "nav.gallery": { en: "Gallery", pt: "Galeria" },
   "nav.about": { en: "About", pt: "Sobre" },
@@ -38,8 +38,8 @@ const translations: Record<string, { en: string; pt: string }> = {
 
   // Events section
   "events.label": { en: "What's On", pt: "O Que Está a Acontecer" },
-  "events.headline": { en: "UPCOMING EVENTS", pt: "PRÓXIMOS EVENTOS" },
-  "events.cta": { en: "VIEW ALL EVENTS", pt: "VER TODOS OS EVENTOS" },
+  "events.headline": { en: "UPCOMING LIVE SHOWS", pt: "PRÓXIMOS SHOWS AO VIVO" },
+  "events.cta": { en: "VIEW ALL LIVE SHOWS", pt: "VER TODOS OS SHOWS" },
 
   // Food section
   "food.label": { en: "The Food", pt: "A Comida" },
@@ -77,7 +77,7 @@ const translations: Record<string, { en: string; pt: string }> = {
   "reserve.call": { en: "Or call us:", pt: "Ou ligue-nos:" },
 
   // Events page
-  "eventsPage.title": { en: "EVENTS", pt: "EVENTOS" },
+  "eventsPage.title": { en: "LIVE SHOWS", pt: "SHOWS AO VIVO" },
   "eventsPage.sub": { en: "Something happening every week.", pt: "Algo a acontecer todas as semanas." },
   "eventsPage.featured": { en: "FEATURED THIS WEEK", pt: "DESTAQUE DESTA SEMANA" },
   "eventsPage.freeEntry": { en: "Free Entry", pt: "Entrada Gratuita" },
@@ -110,7 +110,7 @@ const translations: Record<string, { en: string; pt: string }> = {
   "aboutPage.story3": { en: "Located on the N125 in Quarteira — easy to find, impossible to forget.", pt: "Localizado na N125 em Quarteira — fácil de encontrar, impossível de esquecer." },
   "aboutPage.foodTrucks": { en: "Food Trucks", pt: "Food Trucks" },
   "aboutPage.googleRating": { en: "Google Rating", pt: "Avaliação Google" },
-  "aboutPage.eventsPerWeek": { en: "Events Per Week", pt: "Eventos por Semana" },
+  "aboutPage.eventsPerWeek": { en: "Live Shows Per Week", pt: "Shows ao Vivo por Semana" },
   "aboutPage.outdoorSpace": { en: "Incredible Outdoor Space", pt: "Espaço ao Ar Livre Incrível" },
   "aboutPage.teamTitle": { en: "THE TEAM", pt: "A EQUIPA" },
   "aboutPage.teamPlaceholder": { en: "[Owner name and story — to be added]", pt: "[Nome e história do proprietário — a adicionar]" },
@@ -130,8 +130,13 @@ const translations: Record<string, { en: string; pt: string }> = {
   "contactPage.generalInquiry": { en: "General Inquiry", pt: "Informação Geral" },
   "contactPage.tableReservation": { en: "Table Reservation", pt: "Reserva de Mesa" },
   "contactPage.foodTruckEnquiry": { en: "Food Truck Enquiry", pt: "Interesse em Food Truck" },
-  "contactPage.eventPartnership": { en: "Event Partnership", pt: "Parceria de Evento" },
+  "contactPage.eventPartnership": { en: "Live Show Partnership", pt: "Parceria de Show" },
   "contactPage.privateEvent": { en: "Private Event", pt: "Evento Privado" },
+
+  // Happening Now
+  "happeningNow.label": { en: "HAPPENING NOW", pt: "A ACONTECER AGORA" },
+  "happeningNow.freeEntry": { en: "Free Entry", pt: "Entrada Gratuita" },
+  "happeningNow.paidEntry": { en: "Paid Entry", pt: "Entrada Paga" },
 
   // Footer
   "footer.rights": { en: "All rights reserved.", pt: "Todos os direitos reservados." },
