@@ -10,7 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import heroImg from "@/assets/hero-aerial.jpg";
 import logo from "@/assets/logo.png";
 import flyerSamba from "@/assets/flyer-samba.webp";
-import flyerTarde from "@/assets/flyer-samba-tarde.webp";
+import flyerPulpFriction from "@/assets/flyer-pulp-friction.jpg";
 import flyerRitmo from "@/assets/flyer-ritmo.webp";
 import galleryCrowdSinger from "@/assets/gallery-crowd-singer.png";
 import galleryDancing from "@/assets/gallery-dancing.png";
@@ -42,7 +42,7 @@ const testimonials = [
 
 const events = [
   { name: "Roda de Samba — Viva o Samba", date: "April 4", time: "19h", entry: "Ingressos Disponíveis", image: flyerSamba },
-  { name: "Samba de Tarde — Sambambas", date: "March 15", time: "15h", entry: "Special Offer: Open Bar + Lunch €40", image: flyerTarde },
+  { name: "Rock Royale — Pulp Friction", date: "April 24", time: "20h", entry: "Tickets Available", image: flyerPulpFriction },
   { name: "Ritmo Futuro Showcase", date: "March 14", time: "17h", entry: "Entrada Gratuita", image: flyerRitmo },
 ];
 
