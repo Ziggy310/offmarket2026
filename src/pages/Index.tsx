@@ -4,6 +4,7 @@ import { ChevronDown, UtensilsCrossed, Music, Moon, Users, ArrowRight, Star, Pho
 import { FadeInSection } from "@/hooks/useFadeIn";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HappeningNow from "@/components/HappeningNow";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import heroImg from "@/assets/hero-aerial.jpg";
@@ -136,7 +137,10 @@ export default function Index() {
         </section>
       </FadeInSection>
 
-      {/* FEATURED EVENTS */}
+      {/* HAPPENING NOW */}
+      <HappeningNow />
+
+      {/* FEATURED LIVE SHOWS */}
       <FadeInSection>
         <section className="py-24 px-4 bg-card">
           <div className="container mx-auto">

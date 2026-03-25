@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus, Trash2, Edit, LogOut, Upload, Eye, EyeOff } from "lucide-react";
+import type { HappeningNowData } from "@/components/HappeningNow";
 
 const ADMIN_PASSWORD = "offmkt2025";
 
@@ -19,6 +20,14 @@ const initialEvents: Event[] = [
   { id: 3, name: "Ritmo Futuro Showcase", date: "2025-03-14", time: "17:00", entry: "Free Entry", description: "Electronic music showcase", featured: false },
 ];
 
+const defaultHappeningNow: HappeningNowData = {
+  visible: true,
+  eventName: "DIA DAS CRIANÇAS",
+  date: "Sábado, 1 de Junho",
+  time: "A partir das 14h",
+  description: "Uma tarde especial para os mais pequenos. Atividades, animação e muita diversão para toda a família no espaço Off Market.",
+  entryType: "free",
+};
 export default function AdminPage() {
   const [auth, setAuth] = useState(false);
   const [password, setPassword] = useState("");
@@ -26,9 +35,8 @@ export default function AdminPage() {
   const [events, setEvents] = useState<Event[]>(initialEvents);
   const [showForm, setShowForm] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
-  const [tab, setTab] = useState<"events" | "gallery" | "info">("events");
-
-  const [formData, setFormData] = useState({ name: "", date: "", time: "", entry: "Free Entry", description: "", featured: false });
+  const [tab, setTab] = useState<"events" | "happeningnow" | "gallery" | "info">("events");
+  const [happeningNow, setHappeningNow] = useState<HappeningNowData>(defaultHappeningNow);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
