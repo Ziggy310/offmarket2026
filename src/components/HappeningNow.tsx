@@ -61,20 +61,20 @@ export default function HappeningNow({ data }: { data?: HappeningNowData }) {
               </span>
 
               <h2 className="font-display text-[40px] lg:text-[64px] leading-none text-white mb-4">
-                {d.eventName}
+                {name}
               </h2>
 
               <p
                 className="font-body text-lg mb-1"
                 style={{ color: "#D4873A" }}
               >
-                {d.date}
+                {date}
               </p>
 
-              <p className="font-body text-sm text-white/60 mb-4">{d.time}</p>
+              <p className="font-body text-sm text-white/60 mb-4">{time}</p>
 
               <p className="font-body text-base text-white/80 mb-6 line-clamp-3 max-w-lg">
-                {d.description}
+                {desc}
               </p>
 
               <span
