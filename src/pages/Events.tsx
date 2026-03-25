@@ -5,12 +5,12 @@ import { FadeInSection } from "@/hooks/useFadeIn";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import flyerSamba from "@/assets/flyer-samba.webp";
-import flyerTarde from "@/assets/flyer-samba-tarde.webp";
+import flyerPulpFriction from "@/assets/flyer-pulp-friction.jpg";
 import flyerRitmo from "@/assets/flyer-ritmo.webp";
 
 const allEvents = [
   { id: 1, name: "Roda de Samba — Viva o Samba", date: "April 4, 2025", time: "19h", entryKey: null, entryText: "Ingressos Disponíveis", category: "Samba", image: flyerSamba, description: "An authentic Brazilian samba circle with DJ Teagá. Live percussion, dancing, and the spirit of Rio right here in Quarteira.", featured: true },
-  { id: 2, name: "Samba de Tarde — Sambambas", date: "March 15, 2025", time: "15h", entryKey: null, entryText: "Special Offer: Open Bar 70min + Lunch €40", category: "Samba", image: flyerTarde, description: "An afternoon of samba with Sambambas. Enjoy an exclusive lunch and open bar combo.", featured: true },
+  { id: 2, name: "Rock Royale — Pulp Friction", date: "April 24, 2025", time: "20h", entryKey: null, entryText: "Tickets Available", category: "Rock", image: flyerPulpFriction, description: "Not your usual cover night. Pulp Friction brings the 90s and 2000s rock songs that still hit hard live! Deep cuts, alt-rock staples, and loud favorites from bands like Jane's Addiction, The Cult, Nirvana, Smashing Pumpkins, and more.", featured: true },
   { id: 3, name: "Ritmo Futuro Showcase", date: "March 14, 2025", time: "17h", entryKey: "eventsPage.freeEntry", entryText: "Free Entry", category: "DJ", image: flyerRitmo, description: "Electronic beats meet world rhythms. A showcase of emerging DJs and producers.", featured: false },
 ];
 
